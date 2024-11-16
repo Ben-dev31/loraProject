@@ -1,0 +1,66 @@
+
+<TaskBox>
+    size_hint: None,None
+    md_bg_color: 'teal'
+    width: dp(350)
+    height: dp(100)
+    padding: "4dp"
+    style: "elevated"
+    MDRelativeLayout:
+        MDIconButton:
+            icon: "dots-vertical"
+            pos_hint: {"top": 1, "right": 1}
+        MDBoxLayout:
+            orientation: 'vertical'
+            pos_hint: {"top": .95, "right": 1}
+            MDLabel:
+                text: root.Title
+                color:"white"
+                halign: 'center'
+                bold: True
+
+            MDGridLayout:
+                rows:2
+                cols:2
+                MDLabel:
+                    text:f"Date: {root.Date}"
+                    halign: 'center'
+                MDLabel:
+                    text:root.Location
+                    halign: 'center'
+                MDLabel:
+                    text:"Lieu: UA"
+                    halign: 'center'
+
+<TaskHome>
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: "Gestionaire des Tâches"
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1, .1
+                padding: dp(10)
+                MDRaisedButton:
+                    text: "New"
+                    md_bg_color: 'green'
+                    color: 'white'
+                    on_press: root.newTask()
+                
+            MDBoxLayout:
+                MDScrollView:
+                    do_scroll_x : False
+                    do_scroll_y : True
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        padding: "4dp"
+                        spacing: dp(10)
+                        TaskBox:
+                        
+                        
+                        
+                                
