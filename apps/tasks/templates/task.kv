@@ -3,33 +3,41 @@
     size_hint: None,None
     md_bg_color: 'teal'
     width: dp(350)
-    height: dp(100)
+    height: dp(150)
     padding: "4dp"
     style: "elevated"
     MDRelativeLayout:
         MDIconButton:
             icon: "dots-vertical"
             pos_hint: {"top": 1, "right": 1}
+            on_release : root.menu_open(self)
+
         MDBoxLayout:
             orientation: 'vertical'
-            pos_hint: {"top": .95, "right": 1}
+            pos_hint: {"top": 1, "right": 1}
             MDLabel:
-                text: root.Title
-                color:"white"
+                text: f"[color=ffffff][b]{root.Title}[/b][/color]"
+                markup: True
                 halign: 'center'
-                bold: True
 
             MDGridLayout:
-                rows:2
+                rows:3
                 cols:2
                 MDLabel:
                     text:f"Date: {root.Date}"
                     halign: 'center'
                 MDLabel:
-                    text:root.Location
+                    text:root.Time
                     halign: 'center'
                 MDLabel:
-                    text:"Lieu: UA"
+                    text:f"Lieu: {root.Location}"
+                    halign: 'center'
+                MDLabel:
+                    text:root.Detail
+                    halign: 'center'
+                MDLabel:
+                    text: f"[color=3fc51e]{root.Frequence}[/color]"
+                    markup: True
                     halign: 'center'
 
 <TaskHome>
@@ -55,6 +63,7 @@
                     do_scroll_x : False
                     do_scroll_y : True
                     MDBoxLayout:
+                        id:tasks
                         orientation: 'vertical'
                         adaptive_height: True
                         padding: "4dp"
