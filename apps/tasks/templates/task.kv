@@ -16,9 +16,9 @@
             orientation: 'vertical'
             pos_hint: {"top": 1, "right": 1}
             MDLabel:
-                text: f"[color=ffffff][b]{root.Title}[/b][/color]"
+                text: f" [color=ffffff][b]{root.Title}[/b][/color]"
                 markup: True
-                halign: 'center'
+                halign: 'left'
 
             MDGridLayout:
                 rows:3
@@ -28,13 +28,13 @@
                     halign: 'center'
                 MDLabel:
                     text:root.Time
-                    halign: 'center'
+                    halign: 'right'
                 MDLabel:
                     text:f"Lieu: {root.Location}"
-                    halign: 'center'
+                    halign: 'left'
                 MDLabel:
                     text:root.Detail
-                    halign: 'center'
+                    halign: 'right'
                 MDLabel:
                     text: f"[color=3fc51e]{root.Frequence}[/color]"
                     markup: True

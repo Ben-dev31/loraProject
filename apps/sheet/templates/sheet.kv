@@ -1,0 +1,61 @@
+
+            
+                            
+<SheetInputDataScreen>
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: app.AppName
+            anchor_title: "left"
+            md_bg_color: "brown"
+            specific_text_color: "white"
+            elevation: 4
+            shadow_color: "black"
+            mode: "free-end"
+            left_action_items: [["keyboard-backspace", lambda x: root.back_screen()]]
+            right_action_items:[["content-save", lambda x: root.save_content()],["dots-vertical", lambda x: root.menu()]]
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            MDBoxLayout:
+                size_hint: 1, .2
+                orientation: 'vertical'
+                MDTextField:
+                    hint_text: "Sheet Name"
+                    mode: "rectangle"
+                    size_hint_x: .6
+                MDRelativeLayout:
+                    MDIconButton:
+                        icon:"minus"
+                        pos_hint: {'center_x': .8,'center_y': 0.7}
+                        md_bg_color: "#2488fa"
+                        on_release: root.remove_col()
+                    MDIconButton:
+                        icon:"plus"
+                        pos_hint: {'center_x': .9,'center_y': 0.7}
+                        md_bg_color: "#2488fa"
+                        on_release: root.add_col()
+                    
+            MDScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    adaptive_height: True
+                    SheetTable:
+                        id:sheet_table
+            
+            MDRelativeLayout:
+                size_hint: 1,.1
+                MDIconButton:
+                    icon:"minus"
+                    pos_hint: {'center_x': .2,'center_y': 0.5}
+                    md_bg_color: "#2488fa"
+                    on_release: root.remove_row()
+                MDIconButton:
+                    icon:"plus"
+                    pos_hint: {'center_x': .1,'center_y': 0.5}
+                    md_bg_color: "#2488fa"
+                    on_release: root.add_row()
+                    
